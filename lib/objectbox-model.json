@@ -4,38 +4,38 @@
   "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
   "entities": [
     {
-      "id": "1:6616086305974267465",
-      "lastPropertyId": "6:6591890113241131482",
+      "id": "1:4673488945083285009",
+      "lastPropertyId": "6:1570454474151635918",
       "name": "User",
       "properties": [
         {
-          "id": "1:1886969002220196653",
-          "name": "regId",
+          "id": "1:2283470063385854552",
+          "name": "uId",
           "type": 6,
           "flags": 129
         },
         {
-          "id": "2:8032906692021403254",
+          "id": "2:1612718285661344359",
           "name": "fname",
           "type": 9
         },
         {
-          "id": "3:4362939018989856057",
+          "id": "3:7804387992630862223",
           "name": "lname",
           "type": 9
         },
         {
-          "id": "4:4290126684152729585",
+          "id": "4:2643038881002153745",
+          "name": "gender",
+          "type": 9
+        },
+        {
+          "id": "5:3683969749115902257",
           "name": "email",
           "type": 9
         },
         {
-          "id": "5:7465998691317805114",
-          "name": "username",
-          "type": 9
-        },
-        {
-          "id": "6:6591890113241131482",
+          "id": "6:1570454474151635918",
           "name": "password",
           "type": 9
         }
@@ -43,7 +43,7 @@
       "relations": []
     }
   ],
-  "lastEntityId": "1:6616086305974267465",
+  "lastEntityId": "1:4673488945083285009",
   "lastIndexId": "0:0",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",

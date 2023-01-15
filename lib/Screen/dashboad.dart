@@ -1,64 +1,63 @@
-import 'package:doctor_appoinment_app/Screen/register_page.dart';
+import 'package:doctor_appoinment_app/Screen/profilescreen.dart';
 import 'package:flutter/material.dart';
 
-import 'login_page.dart';
+import 'cartscreen.dart';
+import 'homescreen.dart';
 
-class DashboardScreen extends StatelessWidget {
+class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
 
+  @override
+  State<DashboardScreen> createState() => _DashboardScreenState();
+}
+
+class _DashboardScreenState extends State<DashboardScreen> {
+  String searchValue = '';
+  int _selectedIndex = 0;
+  List<Widget> lstBottomScreen = [
+    const HomeScreen(),
+    const Cartscreen(),
+    const Profilescreen(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Dashboard'),
+        title: const Text('Homepage'),
+        backgroundColor: Color.fromARGB(255, 71, 160, 232),
         centerTitle: true,
-        backgroundColor: Color.fromARGB(255, 40, 108, 209),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.search),
+          )
+        ],
       ),
-      body: Container(
-        child: Row(children: [
-          Card(
-            color: Color.fromARGB(255, 116, 80, 22),
-            clipBehavior: Clip.hardEdge,
-            child: InkWell(
-              splashColor: Colors.blue.withAlpha(30),
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const LoginScreen()));
-              },
-              child: const SizedBox(
-                width: 150,
-                height: 150,
-                child: Text(
-                  'Login',
-                ),
-              ),
-            ),
+      body: lstBottomScreen[_selectedIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.blue,
+        selectedItemColor: Colors.yellowAccent,
+        unselectedItemColor: Colors.white,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
           ),
-          const SizedBox(
-            height: 50,
-            width: 50,
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_bag),
+            label: 'Cart',
           ),
-          Card(
-            color: const Color.fromARGB(255, 48, 43, 35),
-            clipBehavior: Clip.hardEdge,
-            child: InkWell(
-              splashColor: Colors.blue.withAlpha(30),
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const RegisterScreen()));
-              },
-              child: const SizedBox(
-                width: 150,
-                height: 150,
-                child: Text('Register'),
-              ),
-            ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'profile',
           ),
-        ]),
+        ],
+        currentIndex: _selectedIndex,
+        onTap: (index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
       ),
     );
   }

@@ -14,44 +14,44 @@ import 'package:objectbox/internal.dart'; // generated code can access "internal
 import 'package:objectbox/objectbox.dart';
 import 'package:objectbox_flutter_libs/objectbox_flutter_libs.dart';
 
-import 'model/register_request_model.dart';
+import 'model/user.dart';
 
 export 'package:objectbox/objectbox.dart'; // so that callers only have to import this file
 
 final _entities = <ModelEntity>[
   ModelEntity(
-      id: const IdUid(1, 6616086305974267465),
+      id: const IdUid(1, 4673488945083285009),
       name: 'User',
-      lastPropertyId: const IdUid(6, 6591890113241131482),
+      lastPropertyId: const IdUid(6, 1570454474151635918),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 1886969002220196653),
-            name: 'regId',
+            id: const IdUid(1, 2283470063385854552),
+            name: 'uId',
             type: 6,
             flags: 129),
         ModelProperty(
-            id: const IdUid(2, 8032906692021403254),
+            id: const IdUid(2, 1612718285661344359),
             name: 'fname',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(3, 4362939018989856057),
+            id: const IdUid(3, 7804387992630862223),
             name: 'lname',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(4, 4290126684152729585),
+            id: const IdUid(4, 2643038881002153745),
+            name: 'gender',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 3683969749115902257),
             name: 'email',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(5, 7465998691317805114),
-            name: 'username',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 6591890113241131482),
+            id: const IdUid(6, 1570454474151635918),
             name: 'password',
             type: 9,
             flags: 0)
@@ -80,7 +80,7 @@ Future<Store> openStore(
 ModelDefinition getObjectBoxModel() {
   final model = ModelInfo(
       entities: _entities,
-      lastEntityId: const IdUid(1, 6616086305974267465),
+      lastEntityId: const IdUid(1, 4673488945083285009),
       lastIndexId: const IdUid(0, 0),
       lastRelationId: const IdUid(0, 0),
       lastSequenceId: const IdUid(0, 0),
@@ -97,25 +97,25 @@ ModelDefinition getObjectBoxModel() {
         model: _entities[0],
         toOneRelations: (User object) => [],
         toManyRelations: (User object) => {},
-        getId: (User object) => object.regId,
+        getId: (User object) => object.uId,
         setId: (User object, int id) {
-          object.regId = id;
+          object.uId = id;
         },
         objectToFB: (User object, fb.Builder fbb) {
           final fnameOffset = fbb.writeString(object.fname);
           final lnameOffset = fbb.writeString(object.lname);
+          final genderOffset = fbb.writeString(object.gender);
           final emailOffset = fbb.writeString(object.email);
-          final usernameOffset = fbb.writeString(object.username);
           final passwordOffset = fbb.writeString(object.password);
           fbb.startTable(7);
-          fbb.addInt64(0, object.regId);
+          fbb.addInt64(0, object.uId);
           fbb.addOffset(1, fnameOffset);
           fbb.addOffset(2, lnameOffset);
-          fbb.addOffset(3, emailOffset);
-          fbb.addOffset(4, usernameOffset);
+          fbb.addOffset(3, genderOffset);
+          fbb.addOffset(4, emailOffset);
           fbb.addOffset(5, passwordOffset);
           fbb.finish(fbb.endTable());
-          return object.regId;
+          return object.uId;
         },
         objectFromFB: (Store store, ByteData fbData) {
           final buffer = fb.BufferContext(fbData);
@@ -132,8 +132,7 @@ ModelDefinition getObjectBoxModel() {
                   .vTableGet(buffer, rootOffset, 12, ''),
               const fb.StringReader(asciiOptimization: true)
                   .vTableGet(buffer, rootOffset, 14, ''),
-              regId:
-                  const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0));
+              uId: const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0));
 
           return object;
         })
@@ -144,8 +143,8 @@ ModelDefinition getObjectBoxModel() {
 
 /// [User] entity fields to define ObjectBox queries.
 class User_ {
-  /// see [User.regId]
-  static final regId = QueryIntegerProperty<User>(_entities[0].properties[0]);
+  /// see [User.uId]
+  static final uId = QueryIntegerProperty<User>(_entities[0].properties[0]);
 
   /// see [User.fname]
   static final fname = QueryStringProperty<User>(_entities[0].properties[1]);
@@ -153,11 +152,11 @@ class User_ {
   /// see [User.lname]
   static final lname = QueryStringProperty<User>(_entities[0].properties[2]);
 
-  /// see [User.email]
-  static final email = QueryStringProperty<User>(_entities[0].properties[3]);
+  /// see [User.gender]
+  static final gender = QueryStringProperty<User>(_entities[0].properties[3]);
 
-  /// see [User.username]
-  static final username = QueryStringProperty<User>(_entities[0].properties[4]);
+  /// see [User.email]
+  static final email = QueryStringProperty<User>(_entities[0].properties[4]);
 
   /// see [User.password]
   static final password = QueryStringProperty<User>(_entities[0].properties[5]);

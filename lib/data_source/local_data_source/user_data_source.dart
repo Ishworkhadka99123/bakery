@@ -1,13 +1,17 @@
+
 import '../../helper/objectbox.dart';
-import '../../model/register_request_model.dart';
+import '../../model/user.dart';
 import '../../state/objectbox_state.dart';
 
+// import 'package:objectbox/objectbox.dart';
+
 class UserDataSource {
-  ObjectBoxInstance get objectBoxInstance => ObjectBoxState.objectBoxInstance!;
-  //Or
+  ObjectBoxInstance get objectboxInstance => ObjectBoxState.objectBoxInstance!;
+  // or
   ObjectBoxInstance objectBoxInstance2 = ObjectBoxState.objectBoxInstance!;
 
-  Future<int> adduser(User user) async {
+  get objectBoxInstance => null;
+  Future<int> addUser(User user) async {
     try {
       return objectBoxInstance2.addUser(user);
     } catch (e) {
@@ -17,19 +21,17 @@ class UserDataSource {
 
   Future<List<User>> getAllUser() async {
     try {
-      return objectBoxInstance2.getAllUser();
+      return Future.value(objectBoxInstance.getAllUser());
     } catch (e) {
-      return [];
+      throw Exception('Error getting all user');
     }
   }
 
   Future<User?> loginUser(String email, String password) {
     try {
-      return Future.value(objectBoxInstance2.loginUser(email, password));
+      return Future.value(objectBoxInstance.loginUser(email, password));
     } catch (e) {
       return Future.value(null);
     }
   }
-
-  // Future<int> addUser(User user) {}
 }

@@ -6,9 +6,11 @@ import 'helper/objectbox.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // Create an Object for ObjectBoxInstance
+  // create an object for ObjectBoxInstance
   ObjectBoxState.objectBoxInstance = await ObjectBoxInstance.init();
   runApp(
-    const MyApp(),
+    const MyApp(
+      debugShowCheckedModeBanner: false,
+    ),
   );
 }

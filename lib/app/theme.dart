@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 ThemeData getApplicationThemeData() {
   return ThemeData(
-    primaryColor: HexColor.fromHex("#1176ee"),
+    primaryColor: HexColor.fromHex("#ED9728"),
     primaryColorLight: HexColor.fromHex("#B3ED9728"),
     primaryColorDark: HexColor.fromHex("#d17d11"),
     disabledColor: HexColor.fromHex("#707070"),
@@ -10,12 +10,12 @@ ThemeData getApplicationThemeData() {
     buttonTheme: ButtonThemeData(
       shape: const StadiumBorder(),
       disabledColor: HexColor.fromHex("#707070"),
-      buttonColor: HexColor.fromHex("#1176ee"),
+      buttonColor: HexColor.fromHex("#ED9728"),
       splashColor: HexColor.fromHex("#B3ED9728"),
     ),
     appBarTheme: AppBarTheme(
       centerTitle: true,
-      color: HexColor.fromHex("#1176ee"),
+      color: HexColor.fromHex("#ED9728"),
       elevation: 4,
       shadowColor: HexColor.fromHex("#B3ED9728"),
       titleTextStyle: const TextStyle(
@@ -31,7 +31,7 @@ ThemeData getApplicationThemeData() {
           color: Colors.white,
           fontWeight: FontWeight.w500,
         ),
-        backgroundColor: HexColor.fromHex("#1176ee"),
+        backgroundColor: HexColor.fromHex("#ED9728"),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
         ),
@@ -58,7 +58,7 @@ ThemeData getApplicationThemeData() {
       //Focus border
       focusedBorder: OutlineInputBorder(
           borderSide:
-              BorderSide(color: HexColor.fromHex("#1176ee"), width: 1.5),
+              BorderSide(color: HexColor.fromHex("#ED9728"), width: 1.5),
           borderRadius: const BorderRadius.all(Radius.circular(8))),
       // error border
       errorBorder: OutlineInputBorder(
@@ -67,7 +67,7 @@ ThemeData getApplicationThemeData() {
           borderRadius: const BorderRadius.all(Radius.circular(8))),
       focusedErrorBorder: OutlineInputBorder(
           borderSide:
-              BorderSide(color: HexColor.fromHex("#1176ee"), width: 1.5),
+              BorderSide(color: HexColor.fromHex("#ED9728"), width: 1.5),
           borderRadius: const BorderRadius.all(Radius.circular(8))),
       // enabled border
       enabledBorder: OutlineInputBorder(
