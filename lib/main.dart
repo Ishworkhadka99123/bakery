@@ -1,4 +1,4 @@
-import 'package:doctor_appoinment_app/state/objectbox_state.dart';
+import 'package:bakery_app/state/objectbox_state.dart';
 import 'package:flutter/material.dart';
 
 import 'app/app.dart';

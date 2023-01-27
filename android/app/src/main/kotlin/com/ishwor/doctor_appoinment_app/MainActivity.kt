@@ -1,4 +1,4 @@
-package com.ishwor.doctor_appoinment_app
+package com.ishwor.bakery_app
 
 import io.flutter.embedding.android.FlutterActivity
 

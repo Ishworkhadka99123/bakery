@@ -1,5 +1,4 @@
-
-import 'package:doctor_appoinment_app/app/theme.dart';
+import 'package:bakery_app/app/theme.dart';
 import 'package:flutter/material.dart';
 
 import '../Screen/dashboad.dart';

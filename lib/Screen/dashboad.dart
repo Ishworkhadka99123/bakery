@@ -1,4 +1,4 @@
-import 'package:doctor_appoinment_app/Screen/profilescreen.dart';
+import 'package:bakery_app/Screen/profilescreen.dart';
 import 'package:flutter/material.dart';
 
 import 'cartscreen.dart';

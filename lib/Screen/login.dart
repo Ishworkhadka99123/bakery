@@ -1,4 +1,4 @@
-import 'package:doctor_appoinment_app/Screen/register.dart';
+import 'package:bakery_app/Screen/register.dart';
 import 'package:flutter/material.dart';
 import 'package:motion_toast/motion_toast.dart';
 
@@ -60,14 +60,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 decoration: BoxDecoration(
                     image: const DecorationImage(
                         fit: BoxFit.cover,
-                        image: AssetImage("assets/images/doctor.jpg"))),
+                        image: AssetImage("assets/images/"))),
               ),
               Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    //     child: Image.asset("assets/images/a.jpeg")),
+                    //     child: Image.asset("assets/images/bakery.jpeg")),
                     const Center(
                       child: Padding(
                         padding: EdgeInsets.all(25.0),
