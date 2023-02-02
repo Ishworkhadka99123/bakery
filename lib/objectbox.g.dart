@@ -22,7 +22,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(1, 4673488945083285009),
       name: 'User',
-      lastPropertyId: const IdUid(6, 1570454474151635918),
+      lastPropertyId: const IdUid(7, 6221887960517618971),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -54,7 +54,13 @@ final _entities = <ModelEntity>[
             id: const IdUid(6, 1570454474151635918),
             name: 'password',
             type: 9,
-            flags: 0)
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 6221887960517618971),
+            name: 'userId',
+            type: 9,
+            flags: 2080,
+            indexId: const IdUid(2, 1804226603385882372))
       ],
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[])
@@ -81,11 +87,11 @@ ModelDefinition getObjectBoxModel() {
   final model = ModelInfo(
       entities: _entities,
       lastEntityId: const IdUid(1, 4673488945083285009),
-      lastIndexId: const IdUid(0, 0),
+      lastIndexId: const IdUid(2, 1804226603385882372),
       lastRelationId: const IdUid(0, 0),
       lastSequenceId: const IdUid(0, 0),
       retiredEntityUids: const [],
-      retiredIndexUids: const [],
+      retiredIndexUids: const [5767170661440253984],
       retiredPropertyUids: const [],
       retiredRelationUids: const [],
       modelVersion: 5,
@@ -102,18 +108,27 @@ ModelDefinition getObjectBoxModel() {
           object.uId = id;
         },
         objectToFB: (User object, fb.Builder fbb) {
-          final fnameOffset = fbb.writeString(object.fname);
-          final lnameOffset = fbb.writeString(object.lname);
-          final genderOffset = fbb.writeString(object.gender);
-          final emailOffset = fbb.writeString(object.email);
-          final passwordOffset = fbb.writeString(object.password);
-          fbb.startTable(7);
+          final fnameOffset =
+              object.fname == null ? null : fbb.writeString(object.fname!);
+          final lnameOffset =
+              object.lname == null ? null : fbb.writeString(object.lname!);
+          final genderOffset =
+              object.gender == null ? null : fbb.writeString(object.gender!);
+          final emailOffset =
+              object.email == null ? null : fbb.writeString(object.email!);
+          final passwordOffset = object.password == null
+              ? null
+              : fbb.writeString(object.password!);
+          final userIdOffset =
+              object.userId == null ? null : fbb.writeString(object.userId!);
+          fbb.startTable(8);
           fbb.addInt64(0, object.uId);
           fbb.addOffset(1, fnameOffset);
           fbb.addOffset(2, lnameOffset);
           fbb.addOffset(3, genderOffset);
           fbb.addOffset(4, emailOffset);
           fbb.addOffset(5, passwordOffset);
+          fbb.addOffset(6, userIdOffset);
           fbb.finish(fbb.endTable());
           return object.uId;
         },
@@ -122,17 +137,19 @@ ModelDefinition getObjectBoxModel() {
           final rootOffset = buffer.derefObject(0);
 
           final object = User(
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGet(buffer, rootOffset, 6, ''),
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGet(buffer, rootOffset, 8, ''),
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGet(buffer, rootOffset, 10, ''),
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGet(buffer, rootOffset, 12, ''),
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGet(buffer, rootOffset, 14, ''),
-              uId: const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0));
+              uId: const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0),
+              fname: const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 6),
+              lname: const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 8),
+              userId: const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 16),
+              gender: const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 10),
+              email: const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 12),
+              password: const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 14));
 
           return object;
         })
@@ -160,4 +177,7 @@ class User_ {
 
   /// see [User.password]
   static final password = QueryStringProperty<User>(_entities[0].properties[5]);
+
+  /// see [User.userId]
+  static final userId = QueryStringProperty<User>(_entities[0].properties[6]);
 }

@@ -1,6 +1,7 @@
+import 'package:bakery_app/data_source/remote_data_sourse/userRemoteDataSourse.dart';
+
 import '../data_source/local_data_source/user_data_source.dart';
 import '../model/user.dart';
-
 
 abstract class UserRepository {
   Future<List<User>> getAllUser();
@@ -11,7 +12,8 @@ abstract class UserRepository {
 class UserRepositoryImpl extends UserRepository {
   @override
   Future<int> addUser(User user) {
-    return UserDataSource().addUser(user);
+    // return UserDataSource().addUser(user);
+    return UserRemoteDataSourse().addUser(user);
   }
 
   @override

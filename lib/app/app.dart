@@ -1,3 +1,4 @@
+import 'package:bakery_app/Screen/wearos/wear_login.dart';
 import 'package:bakery_app/app/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'User Plant',
+      title: 'User Bakery',
       debugShowCheckedModeBanner: false,
       theme: getApplicationThemeData(),
       initialRoute: '/',
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const LoginScreen(),
         '/registerScreen': (context) => const Register(),
         '/dashboardScreen': (context) => const DashboardScreen(),
+        // '/WatchLoginScreen': (context) => const WearLoginScreen(),
       },
     );
   }

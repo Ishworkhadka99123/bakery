@@ -42,6 +42,12 @@ dependencies:
   objectbox_flutter_libs: any
   path_provider: ^2.0.11
   motion_toast: ^2.6.4
+  json_serializable: ^6.6.1
+  json_annotation: ^4.8.0
+  dio: ^4.0.6
+  pretty_dio_logger: ^1.1.1
+  # wear: ^1.1.0
+  # fluttertoast: ^6.0.1
 
 dev_dependencies:
   flutter_test:

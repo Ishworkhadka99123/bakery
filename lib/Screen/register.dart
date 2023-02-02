@@ -22,11 +22,11 @@ class _RegisterState extends State<Register> {
 
   saveUser() async {
     User user = User(
-      _fnameController.text,
-      _lnameController.text,
-      _radioValue!,
-      _emailController.text,
-      _passwordController.text,
+      fname: _fnameController.text,
+      lname: _lnameController.text,
+      // gender: _radioValue!,
+      email: _emailController.text,
+      password: _passwordController.text,
     );
     int status = await UserRepositoryImpl().addUser(user);
     _showMessage(status);
@@ -35,11 +35,11 @@ class _RegisterState extends State<Register> {
   _showMessage(int status) {
     if (status > 0) {
       MotionToast.success(
-        description: const Text("student added successfully"),
+        description: const Text("Registration successfully"),
       ).show(context);
     } else {
       MotionToast.error(
-        description: const Text("Error adding student"),
+        description: const Text("Registration Failed"),
       ).show(context);
     }
   }
